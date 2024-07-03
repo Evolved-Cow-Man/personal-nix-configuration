@@ -4,15 +4,22 @@ Repository for my personal NixOS configuration files.
 # How To Maintain
 edit and update
 `sudo nano /etc/nixos/configuration.nix`
+
 `sudo nix-channel --update`
+
 `sudo nixos-rebuild switch`
+
 `sudo reboot now`
 
 clean up (if i feel the system is stable)
 `sudo nix-collect-garbage`
+
 `sudo nix-collect-garbage -d`
+
 `sudo nix-env --delete-generations +3`
+
 `sudo nix-store --optimize`
+
 `sudo reboot now`
 
 # How To Install
@@ -38,11 +45,14 @@ make swap
 
 make boot
 `parted /dev/sdx -- mkpart ESP fat32 1MB 512MB`
+
 `parted /dev/sdx -- set 3 esp on`
 
 formating
 `mkfs.btrfs -L nixos /dev/sdx1`
+
 `mkswap -L swap /dev/sdx2`
+
 `mkfs.fat -F 32 -n boot /dev/sdx3`
 
 mount this thing
@@ -50,6 +60,7 @@ mount this thing
 
 uefi things
 `mkdir -p /mnt/boot`
+
 `mount -o umask=077 /dev/disk/by-label/boot /mnt/boot`
 
 swap
@@ -60,12 +71,19 @@ make config
 
 get config from github
 `nix-shell -p git`
+
 `mkdir /tmp/tmp-git-repo`
+
 `cd /tmp/tmp-git-repo`
+
 `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
+
 `mv /tmp/tmp-git-repo/personal-nix-configuration/personal/configuration.nix /mnt/etc/nixos/configuration.nix`
+
 `exit`
+
 `rm -rf /tmp/tmp-git-repo`
+
 `cd /`
 
 make sure it looks right
