@@ -77,7 +77,6 @@
       obs-studio
 
       # other stuff
-      atuin # great bash history
     ];
   };
 
