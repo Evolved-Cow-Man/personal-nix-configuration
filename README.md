@@ -21,7 +21,7 @@ update configuration.nix on github
 * `gh auth setup-git`
 * `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
 * `cd personal-nix-configuration/`
-* `sudo mv /etc/nixos/configuration.nix personal/configuration.nix`
+* `sudo cp /etc/nixos/configuration.nix personal/configuration.nix`
 * `git add .`
 * `git commit -m "update"`
 * `git push`
