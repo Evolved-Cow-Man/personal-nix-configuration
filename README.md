@@ -16,7 +16,7 @@ clean up (if i feel the system is stable)
 * `sudo reboot now`
 
 update configuration.nix on github
-// I think this is how you do github auth on linux
+[//]: # (I think this is how you do github auth on linux)
 * `gh auth login`
 * `gh auth setup-git`
 * `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
