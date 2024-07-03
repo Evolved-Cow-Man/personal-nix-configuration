@@ -3,97 +3,79 @@ Repository for my personal NixOS configuration files.
 
 # How To Maintain
 edit and update
-`sudo nano /etc/nixos/configuration.nix`
-
-`sudo nix-channel --update`
-
-`sudo nixos-rebuild switch`
-
-`sudo reboot now`
+* `sudo nano /etc/nixos/configuration.nix`
+* `sudo nix-channel --update`
+* `sudo nixos-rebuild switch`
+* `sudo reboot now`
 
 clean up (if i feel the system is stable)
-`sudo nix-collect-garbage`
-
-`sudo nix-collect-garbage -d`
-
-`sudo nix-env --delete-generations +3`
-
-`sudo nix-store --optimize`
-
-`sudo reboot now`
+* `sudo nix-collect-garbage`
+* `sudo nix-collect-garbage -d`
+* `sudo nix-env --delete-generations +3`
+* `sudo nix-store --optimize`
+* `sudo reboot now`
 
 # How To Install
 get network
 
 just sudo yourself so you don't have to type it
-`sudo -i`
+* `sudo -i`
 
 find disk
-`ls /dev/sd*`
+* `ls /dev/sd*`
 
 wipe all tables on disk
-`wipefs -a /dev/sdx`
+* `wipefs -a /dev/sdx`
 
 make new table (gpt)
-`parted /dev/sdx -- mklabel gpt`
+* `parted /dev/sdx -- mklabel gpt`
 
 make main btrfs
-`parted /dev/sdx -- mkpart root btrfs 512MB -8GB`
+* `parted /dev/sdx -- mkpart root btrfs 512MB -8GB`
 
 make swap
-`parted /dev/sdx -- mkpart swap linux-swap -8GB 100%`
+* `parted /dev/sdx -- mkpart swap linux-swap -8GB 100%`
 
 make boot
-`parted /dev/sdx -- mkpart ESP fat32 1MB 512MB`
-
-`parted /dev/sdx -- set 3 esp on`
+* `parted /dev/sdx -- mkpart ESP fat32 1MB 512MB`
+* `parted /dev/sdx -- set 3 esp on`
 
 formating
-`mkfs.btrfs -L nixos /dev/sdx1`
-
-`mkswap -L swap /dev/sdx2`
-
-`mkfs.fat -F 32 -n boot /dev/sdx3`
+* `mkfs.btrfs -L nixos /dev/sdx1`
+* `mkswap -L swap /dev/sdx2`
+* `mkfs.fat -F 32 -n boot /dev/sdx3`
 
 mount this thing
-`mount /dev/disk/by-label/nixos /mnt`
+* `mount /dev/disk/by-label/nixos /mnt`
 
 uefi things
-`mkdir -p /mnt/boot`
-
-`mount -o umask=077 /dev/disk/by-label/boot /mnt/boot`
+* `mkdir -p /mnt/boot`
+* `mount -o umask=077 /dev/disk/by-label/boot /mnt/boot`
 
 swap
-`swapon /dev/sda2`
+* `swapon /dev/sda2`
 
 make config
-`nixos-generate-config --root /mnt`
+* `nixos-generate-config --root /mnt`
 
 get config from github
-`nix-shell -p git`
-
-`mkdir /tmp/tmp-git-repo`
-
-`cd /tmp/tmp-git-repo`
-
-`git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
-
-`mv /tmp/tmp-git-repo/personal-nix-configuration/personal/configuration.nix /mnt/etc/nixos/configuration.nix`
-
-`exit`
-
-`rm -rf /tmp/tmp-git-repo`
-
-`cd /`
+* `nix-shell -p git`
+* `mkdir /tmp/tmp-git-repo`
+* `cd /tmp/tmp-git-repo`
+* `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
+* `mv /tmp/tmp-git-repo/personal-nix-configuration/personal/configuration.nix /mnt/etc/nixos/configuration.nix`
+* `exit`
+* `rm -rf /tmp/tmp-git-repo`
+* `cd /`
 
 make sure it looks right
-`nano /mnt/etc/nixos/configuration.nix`
+* `nano /mnt/etc/nixos/configuration.nix`
 
 hope, lol - and set root password
-`nixos-install`
+* `nixos-install`
 
 if it all worked and boot order is right / USB is out.
-`reboot now`
+* `reboot now`
 
 I don't use encryption on my main disk as it does not use tpm like windows, 
 seems like a pain to get it to work. The file system being immutable apart from 
@@ -102,4 +84,4 @@ the feds want on another drive. If I care more about it later this is something
 to look into: https://nixos.wiki/wiki/ECryptfs. You'll also need to setup your 
 password before using sddm due to it not liking passwordless login (get into a 
 TTY).
-`passwd`
+* `passwd`
