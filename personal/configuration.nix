@@ -79,6 +79,7 @@
       # other stuff
       nixfmt-rfc-style
       git
+      gh
       gparted # can be ran with "sudo -E gparted"
     ];
   };
