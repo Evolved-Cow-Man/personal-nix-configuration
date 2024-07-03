@@ -39,6 +39,7 @@ just sudo yourself so you don't have to type it
 
 find disk
 * `ls /dev/sd*`
+* `lsblk`
 
 wipe all tables on disk
 * `wipefs -a /dev/sdx`
