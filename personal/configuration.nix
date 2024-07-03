@@ -77,6 +77,9 @@
       obs-studio
 
       # other stuff
+      nixfmt-rfc-style
+      git
+      gparted # can be ran with "sudo -E gparted"
     ];
   };
 
