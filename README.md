@@ -9,21 +9,14 @@ edit and update
 * `sudo reboot now`
 
 clean up (if i feel the system is stable)
-* `sudo nix-collect-garbage`
-* `sudo nix-collect-garbage -d`
 * `sudo nix-env --delete-generations +3`
+* `sudo nix-collect-garbage -d`
 * `sudo nix-store --optimize`
 * `sudo reboot now`
 
 update configuration.nix on github
-
-[//]: # (I think this how you do comments - also make sure there is white line before)
-
-[//]: # (I think this is how you do github auth on linux)
 * `gh auth login`
 * `gh auth setup-git`
-
-[//]: # (hope the rest goes okay)
 * `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
 * `cd personal-nix-configuration/`
 * `sudo cp /etc/nixos/configuration.nix personal/configuration.nix`
@@ -38,7 +31,6 @@ just sudo yourself so you don't have to type it
 * `sudo -i`
 
 find disk
-* `ls /dev/sd*`
 * `lsblk`
 
 wipe all tables on disk
@@ -47,8 +39,8 @@ wipe all tables on disk
 make new table (gpt)
 * `parted /dev/sdx -- mklabel gpt`
 
-make main btrfs
-* `parted /dev/sdx -- mkpart root btrfs 512MB -8GB`
+make main ext4
+* `parted /dev/sdx -- mkpart root ext4 512MB -8GB`
 
 make swap
 * `parted /dev/sdx -- mkpart swap linux-swap -8GB 100%`
@@ -58,7 +50,7 @@ make boot
 * `parted /dev/sdx -- set 3 esp on`
 
 formating
-* `mkfs.btrfs -L nixos /dev/sdx1`
+* `mkfs.ext4 -L nixos /dev/sdx1`
 * `mkswap -L swap /dev/sdx2`
 * `mkfs.fat -F 32 -n boot /dev/sdx3`
 
@@ -98,7 +90,9 @@ I don't use encryption on my main disk as it does not use tpm like windows,
 seems like a pain to get it to work. The file system being immutable apart from 
 my home folder should mean that I can be more careful and just keep anyhting 
 the feds want on another drive. If I care more about it later this is something 
-to look into: https://nixos.wiki/wiki/ECryptfs. You'll also need to setup your 
-password before using sddm due to it not liking passwordless login (get into a 
-TTY).
+to look into. Should be able to just encrypt my home folder.
+* `https://nixos.wiki/wiki/ECryptfs`
+
+You'll also need to setup your password before using sddm due to it not liking
+passwordless login (get into a TTY).
 * `passwd`
