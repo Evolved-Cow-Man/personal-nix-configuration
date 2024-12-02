@@ -38,7 +38,7 @@
     # useXkbConfig = true; # use xkb.options in tty. Don't know what this does TBH
   };
 
-  # I want to use KDE Plasma
+  # Enable KDE Plasma
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
