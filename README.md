@@ -54,7 +54,7 @@ formating
 * `mkswap -L swap /dev/sdx2`
 * `mkfs.fat -F 32 -n boot /dev/sdx3`
 
-mount this thing
+mount root
 * `mount /dev/disk/by-label/nixos /mnt`
 
 uefi things
@@ -62,7 +62,7 @@ uefi things
 * `mount -o umask=077 /dev/disk/by-label/boot /mnt/boot`
 
 swap
-* `swapon /dev/sda2`
+* `swapon /dev/sdx2`
 
 make config
 * `nixos-generate-config --root /mnt`
