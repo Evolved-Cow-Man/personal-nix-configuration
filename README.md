@@ -17,6 +17,8 @@ clean up (if i feel the system is stable)
 update configuration.nix on github
 * `gh auth login`
 * `gh auth setup-git`
+* `git config --global user.name "Your Name"`
+* `git config --global user.email "youremail@yourdomain.com"`
 * `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
 * `cd personal-nix-configuration/`
 * `sudo cp /etc/nixos/configuration.nix personal/configuration.nix`
