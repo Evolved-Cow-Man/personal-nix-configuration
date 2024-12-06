@@ -13,7 +13,7 @@
   # Use the GRUB 2 boot loader.
   boot.loader = {
     efi = {
-      canTouchEfiVariables = true;
+      canTouchEfiVariables = false; # vultr VPS wants this off
     };
     grub = {
       efiSupport = true;
