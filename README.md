@@ -27,6 +27,10 @@ update configuration.nix on github
 * `git push`
 
 # How To Install
+
+(The instructions I have listed here are for UEFI, check this link for legacy)
+https://nixos.org/manual/nixos/stable/
+
 get network
 
 just sudo yourself so you don't have to type it

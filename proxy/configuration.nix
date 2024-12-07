@@ -13,10 +13,10 @@
   # Use the GRUB 2 boot loader.
   boot.loader = {
     efi = {
-      canTouchEfiVariables = false; # vultr VPS wants this off
+      canTouchEfiVariables = false; # vultr VPS is legacy
     };
     grub = {
-      efiSupport = true;
+      efiSupport = false; # vultr VPS is legacy
       device = "nodev";
       useOSProber = true; # Autodetection of other OSs
     };
