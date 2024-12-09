@@ -46,6 +46,7 @@
   environment.systemPackages = with pkgs; [
     git
     gh
+    htop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
