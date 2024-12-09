@@ -10,14 +10,10 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = false; # vultr VPS is legacy
-    };
+  # Use the GRUB 2 boot loader. (setup for legacy boot)
     grub = {
-      efiSupport = false; # vultr VPS is legacy
-      device = "nodev";
+      enable = true;
+      device = "/dev/vda";
       useOSProber = true; # Autodetection of other OSs
     };
   };
