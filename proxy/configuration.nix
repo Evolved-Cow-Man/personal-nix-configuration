@@ -11,8 +11,10 @@
 
       # for nix-minecraft
       inputs.nix-minecraft.nixosModules.minecraft-servers
-      nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
     ];
+
+    # for nix-minecraft
+    nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
   # Use the GRUB 2 boot loader. (setup for legacy boot)
   boot.loader.grub = {
