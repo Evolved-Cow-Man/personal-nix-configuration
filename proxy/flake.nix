@@ -1,14 +1,17 @@
 {
+  description = "Nixos config flake";
+
   inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { self, nixpkgs, ... }: {
-    nixosConfigurations.mySystem = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux"; # Adjust based on your system architecture
-        modules = [
-        ./configuration.nix  # Your main system configuration
-        ];
+    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./configuration.nix
+      ];
     };
   };
 }
