@@ -9,29 +9,29 @@ find disk
 * `lsblk`
 
 wipe all tables on disk
-* `wipefs -a /dev/sdv`
+* `wipefs -a /dev/vda`
 
 make new table (gpt)
-* `parted /dev/sdv -- mklabel msdos`
+* `parted /dev/vda -- mklabel msdos`
 
 make main ext4
-* `parted /dev/sdv -- mkpart primary 1MB -8GB`
+* `parted /dev/vda -- mkpart primary 1MB -8GB`
 
 set boot flag
-* `parted /dev/sdv -- set 1 boot on`
+* `parted /dev/vda -- set 1 boot on`
 
 make swap
-* `parted /dev/sdv -- mkpart primary linux-swap -8GB 100%`
+* `parted /dev/vda -- mkpart primary linux-swap -8GB 100%`
 
 formating
-* `mkfs.ext4 -L nixos /dev/sdv1`
-* `mkswap -L swap /dev/sdv2`
+* `mkfs.ext4 -L nixos /dev/vda1`
+* `mkswap -L swap /dev/vda2`
 
 mount root
 * `mount /dev/disk/by-label/nixos /mnt`
 
 swap
-* `swapon /dev/sdv2`
+* `swapon /dev/vda2`
 
 make config
 * `nixos-generate-config --root /mnt`
