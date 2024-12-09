@@ -9,7 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      # for nix-minecraft
       inputs.nix-minecraft.nixosModules.minecraft-servers
+      nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
     ];
 
   # Use the GRUB 2 boot loader. (setup for legacy boot)
