@@ -11,11 +11,10 @@
     ];
 
   # Use the GRUB 2 boot loader. (setup for legacy boot)
-    grub = {
-      enable = true;
-      device = "/dev/vda";
-      useOSProber = true; # Autodetection of other OSs
-    };
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/vda";
+    useOSProber = true; # Autodetection of other OSs
   };
 
   networking.hostName = "nixos-proxy"; # Define your hostname.
