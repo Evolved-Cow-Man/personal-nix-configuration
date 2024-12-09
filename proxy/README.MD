@@ -42,6 +42,7 @@ get config from github
 * `cd /tmp/tmp-git-repo`
 * `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
 * `mv /tmp/tmp-git-repo/personal-nix-configuration/proxy/configuration.nix /mnt/etc/nixos/configuration.nix`
+* `mv /tmp/tmp-git-repo/personal-nix-configuration/proxy/flake.nix /mnt/etc/nixos/flake.nix`
 * `exit`
 * `rm -rf /tmp/tmp-git-repo`
 * `cd /`
