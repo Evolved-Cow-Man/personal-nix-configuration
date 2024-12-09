@@ -1,9 +1,6 @@
 # How To Install
 
-(The instructions I have listed here are for UEFI, check this link for legacy)
-https://nixos.org/manual/nixos/stable/
-
-get network
+attach nixos minimal ISO
 
 just sudo yourself so you don't have to type it
 * `sudo -i`
@@ -44,7 +41,7 @@ get config from github
 * `mkdir /tmp/tmp-git-repo`
 * `cd /tmp/tmp-git-repo`
 * `git clone https://github.com/Evolved-Cow-Man/personal-nix-configuration.git`
-* `mv /tmp/tmp-git-repo/personal-nix-configuration/personal/configuration.nix /mnt/etc/nixos/configuration.nix`
+* `mv /tmp/tmp-git-repo/personal-nix-configuration/proxy/configuration.nix /mnt/etc/nixos/configuration.nix`
 * `exit`
 * `rm -rf /tmp/tmp-git-repo`
 * `cd /`
