@@ -54,3 +54,5 @@ hope, lol - and set root password
 
 shutdown then remove install iso in dashboard
 * `sudo shutdown now`
+
+get the tty from the dashboard to set the user password too
