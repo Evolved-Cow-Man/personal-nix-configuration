@@ -49,6 +49,7 @@ get config from github
 
 make sure it looks right
 * `nano /mnt/etc/nixos/configuration.nix`
+* `nano /mnt/etc/nixos/flake.nix`
 
 hope, lol - and set root password
 * `nixos-install`
