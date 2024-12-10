@@ -13,8 +13,23 @@
       inputs.nix-minecraft.nixosModules.minecraft-servers
     ];
 
-    # for nix-minecraft
-    nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+  # for nix-minecraft
+  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+
+  # nix minecraft setup
+  services.minecraft-servers.servers.velocity = {
+    enable = true;
+
+    servers = {
+      velocity-proxy = {
+        enable = true;
+        autoStart = true;
+        restart = "always";
+        package = pkgs.velocityServers.velocity;
+        jvmOpts = "-XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15";
+      }
+    }
+  };
 
   # Use the GRUB 2 boot loader. (setup for legacy boot)
   boot.loader.grub = {
@@ -69,8 +84,8 @@
   # Enable firewall
   networking.firewall.enable = true;
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [];
-  networking.firewall.allowedUDPPorts = [];
+  networking.firewall.allowedTCPPorts = [25565];
+  networking.firewall.allowedUDPPorts = [25565];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
