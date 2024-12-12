@@ -27,8 +27,8 @@
         restart = "always";
         package = pkgs.velocityServers.velocity;
         jvmOpts = "-XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15";
-      }
-    }
+      };
+    };
   };
 
   # Use the GRUB 2 boot loader. (setup for legacy boot)
