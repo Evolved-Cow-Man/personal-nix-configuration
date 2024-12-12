@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }: # 'inputs' for nix-minecraft
 
 {
   imports =
@@ -17,8 +17,9 @@
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
   # nix minecraft setup
-  services.minecraft-servers.servers.velocity = {
+  services.minecraft-servers = {
     enable = true;
+    eula = true;
 
     servers = {
       velocity-proxy = {
