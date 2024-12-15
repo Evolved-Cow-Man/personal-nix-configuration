@@ -28,6 +28,21 @@
         restart = "always";
         package = pkgs.velocityServers.velocity;
         jvmOpts = "-XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15";
+        files."velocity.toml".value = {
+          motd = "\"<white>Evolved Cow's</white>\n<b><i><rainbow>Epic Minecraft Server</rainbow></i></b>\"";
+          force-key-authentication = "false";
+          player-info-forwarding-mode = "\"modern\"";
+
+          # Define your servers
+          "vanilla-server" = "100.75.123.60:25566";
+          "modded-server" = "100.75.123.60:25567";
+          "ash-server" = "100.75.123.60:25568";
+
+          # Forced-hosts configuration
+          "vanilla.evolvedcow.net" = "vanilla-server";
+          "modded.evolvedcow.net" = "modded-server";
+          "ash.evolvedcow.net" = "ash-server";
+        };
       };
     };
   };
